@@ -512,9 +512,9 @@ export default function App() {
       {/* ── Header ── */}
       <header style={{ borderBottom: `1px solid ${BORDER}`, padding: "16px 40px", display: "flex", alignItems: "center", background: DARK_CARD, position: "sticky", top: 0, zIndex: 100 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ fontSize: 24, fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.5px", background: `linear-gradient(90deg, ${BLUE_BRIGHT}, ${BLUE_LIGHT})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", whiteSpace: "nowrap" }}>Nugget<span style={{ fontSize: 13, verticalAlign: "super", marginLeft: 1 }}>™</span> <span style={{ fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>for Sales Teams</span></div>
+          <div style={{ fontSize: 24, fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.5px", background: `linear-gradient(90deg, ${BLUE_BRIGHT}, ${BLUE_LIGHT})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", whiteSpace: "nowrap", lineHeight: 1.2 }}>Nugget<span style={{ fontSize: 13, verticalAlign: "super", marginLeft: 1 }}>™</span> <span style={{ fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>for Sales Teams</span></div>
           <div style={{ width: 1, height: 28, background: BORDER, flexShrink: 0 }} />
-          <div style={{ fontSize: 13, color: MUTED, letterSpacing: "0.03em", lineHeight: 1.4, alignSelf: "center" }}>A sale starts with a warm conversation.</div>
+          <div style={{ fontSize: 13, color: MUTED, letterSpacing: "0.03em", lineHeight: 1.2 }}>A sale starts with a warm conversation.</div>
         </div>
         <nav style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
           {step === "upload" ? (
@@ -740,8 +740,8 @@ export default function App() {
                 <div style={{ textAlign: "center", marginBottom: 40 }}>
                   <div style={{ fontSize: 14, color: BLUE_BRIGHT, letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 700, marginBottom: 18 }}>What You Get</div>
                   <h2 style={{ fontSize: 32, fontFamily: "Georgia, serif", fontWeight: 700, color: WHITE, marginBottom: 24 }}>Two reports. One complete picture of your warm pipeline.</h2>
-                  <p style={{ fontSize: 14, color: MUTED, maxWidth: 500, margin: "0 auto" }}>
-                    Every lead, every signal, and every next step is unique to you and your network.<br />This is your data. These are your prospects. This is your pipeline.
+                  <p style={{ fontSize: 14, color: MUTED, maxWidth: 420, margin: "0 auto" }}>
+                    Every lead, every signal, and every next step is unique to you and your network. This is your data. These are your prospects. This is your pipeline.
                   </p>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 14, marginBottom: 24 }}>
