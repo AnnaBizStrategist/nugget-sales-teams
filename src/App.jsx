@@ -740,7 +740,7 @@ export default function App() {
                 <div style={{ textAlign: "center", marginBottom: 40 }}>
                   <div style={{ fontSize: 14, color: BLUE_BRIGHT, letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 700, marginBottom: 18 }}>What You Get</div>
                   <h2 style={{ fontSize: 32, fontFamily: "Georgia, serif", fontWeight: 700, color: WHITE, marginBottom: 24 }}>Two reports. One complete picture<br />of your warm pipeline.</h2>
-                  <p style={{ fontSize: 14, color: MUTED, maxWidth: 480, margin: "0 auto" }}>
+                  <p style={{ fontSize: 14, color: MUTED, maxWidth: 440, margin: "0 auto" }}>
                     Every lead, every signal, and every next step is unique to you and your network.<br />This is your data. These are your prospects. This is your pipeline.
                   </p>
                 </div>
