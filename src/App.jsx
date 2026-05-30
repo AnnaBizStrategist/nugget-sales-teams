@@ -514,7 +514,7 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ fontSize: 24, fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.5px", background: `linear-gradient(90deg, ${BLUE_BRIGHT}, ${BLUE_LIGHT})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", whiteSpace: "nowrap" }}>Nugget<span style={{ fontSize: 13, verticalAlign: "super", marginLeft: 1 }}>™</span> <span style={{ fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>for Sales Teams</span></div>
           <div style={{ width: 1, height: 28, background: BORDER, flexShrink: 0 }} />
-          <div style={{ fontSize: 13, color: MUTED, letterSpacing: "0.03em", lineHeight: 1.4 }}>A sale starts with a warm conversation.</div>
+          <div style={{ fontSize: 13, color: MUTED, letterSpacing: "0.03em", lineHeight: 1.4, alignSelf: "center" }}>A sale starts with a warm conversation.</div>
         </div>
         <nav style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
           {step === "upload" ? (
@@ -539,7 +539,7 @@ export default function App() {
             <div style={{ background: `linear-gradient(160deg, #061022 0%, #0d2d6b 40%, #1149ac 70%, #41a1e8 100%)`, padding: "80px 24px 72px", borderRadius: "0 0 24px 24px", textAlign: "center", marginBottom: 0 }}>
               <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 20, animation: "fadeSlideUp 0.7s ease-out 0.05s both" }}>Nugget™ for Sales Teams</div>
               <h1 style={{ fontSize: 48, fontFamily: "Georgia, serif", fontWeight: 700, color: "#ffffff", marginBottom: 28, lineHeight: 1.1, animation: "fadeSlideUp 0.7s ease-out 0.1s both" }}>
-                Your warmest prospects are already<br />
+                Your warmest prospects<br />are already<br />
                 <span style={{ background: `linear-gradient(90deg, ${BLUE_BRIGHT}, ${BLUE_LIGHT})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>in your network.</span>
               </h1>
               <p style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", maxWidth: 580, margin: "0 auto 44px", lineHeight: 1.75, animation: "fadeSlideUp 0.7s ease-out 0.2s both" }}>
@@ -558,7 +558,7 @@ export default function App() {
               {/* The Problem */}
               <div className="scroll-reveal" style={{ background: DARK_CARD, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "64px 48px", marginBottom: 0, textAlign: "center" }}>
                 <div style={{ fontSize: 14, color: MUTED, letterSpacing: "0.06em", textTransform: "uppercase", fontWeight: 700, marginBottom: 20 }}>Sound familiar?</div>
-                <p style={{ fontSize: 19, color: WHITE, lineHeight: 1.8, maxWidth: 680, margin: "0 auto", fontFamily: "Georgia, serif" }}>
+                <p style={{ fontSize: 19, color: WHITE, lineHeight: 1.8, maxWidth: 600, margin: "0 auto", fontFamily: "Georgia, serif" }}>
                   Every sales team knows the frustration. Marketing delivers the MQLs, Sales works through them, and too many don't qualify — wrong budget, wrong authority, wrong timing. The pipeline looks full but conversion tells a different story.
                 </p>
                 <p style={{ fontSize: 19, color: WHITE, lineHeight: 1.8, maxWidth: 680, margin: "24px auto 0", fontFamily: "Georgia, serif" }}>
