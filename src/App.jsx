@@ -381,6 +381,23 @@ export default function App() {
   const [modalSubmitted,  setModalSubmitted] = useState(false);
   const fileInputRef = useRef(null);
   const uploadRef    = useRef(null);
+  const [loadingMsg,  setLoadingMsg]   = useState("");
+  const loadingMsgsWarm  = [
+    "Analysing your connection warmth...",
+    "Grouping prospects by seniority...",
+    "Identifying buying signals...",
+    "Building your Navigator filter sets...",
+    "Writing your outreach messages...",
+    "Almost there — finalising your Warm 25...",
+  ];
+  const loadingMsgsInner = [
+    "Identifying your strongest advocates...",
+    "Analysing recommendation patterns...",
+    "Finding your untapped champions...",
+    "Building your referral ask framework...",
+    "Writing your outreach templates...",
+    "Almost there — finalising your Inner Circle...",
+  ];
 
   const hasFiles           = Object.keys(uploadedFiles).length > 0;
   const connCount          = parsedData["Connections"]?._summary?.total || parsedData["Connections"]?.length || 0;
@@ -461,6 +478,23 @@ export default function App() {
     setShowModal(false);
     if (pending) runReport(pending);
   };
+
+  const loadingIntervalRef = useRef(null);
+  useEffect(() => {
+    if (generating) {
+      const msgs = generating === "warm" ? loadingMsgsWarm : loadingMsgsInner;
+      let i = 0;
+      setLoadingMsg(msgs[0]);
+      loadingIntervalRef.current = setInterval(() => {
+        i = (i + 1) % msgs.length;
+        setLoadingMsg(msgs[i]);
+      }, 2800);
+    } else {
+      clearInterval(loadingIntervalRef.current);
+      setLoadingMsg("");
+    }
+    return () => clearInterval(loadingIntervalRef.current);
+  }, [generating]);
 
   const observerRef = useRef(null);
   useEffect(() => {
@@ -809,7 +843,7 @@ export default function App() {
               {generating === activeReport ? (
                 <div style={{ textAlign: "center", padding: "60px 32px" }}>
                   <div style={{ width: 36, height: 36, border: `3px solid ${BORDER}`, borderTop: `3px solid ${BLUE_BRIGHT}`, borderRadius: "50%", animation: "spin 1s linear infinite", margin: "0 auto 16px" }} />
-                  <div style={{ color: MUTED, fontSize: 14 }}>{retryMessage || "Surfacing your warm pipeline..."}</div>
+                  <div style={{ color: MUTED, fontSize: 14 }}>{retryMessage || loadingMsg || "Surfacing your warm pipeline..."}</div>
                 </div>
               ) : reports[activeReport] ? (
                 <><IntroBlock reportId={activeReport} /><ReportContent text={reports[activeReport]} /></>
