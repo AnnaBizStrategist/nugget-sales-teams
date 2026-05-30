@@ -19,7 +19,24 @@ const ANNA_PHOTO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEB
 // ── Report definitions ────────────────────────────────────────────────────────
 const REPORTS = [
   {
-    id: "field",
+    id: "warm",
+    name: "The Warm 25",
+    tag: "INCLUDED",
+    subtitle: "Your ranked prospect list — ready to work",
+    description: "Your top 25 warmest prospects ranked by relationship strength, grouped by seniority, and loaded with buying signals. Plus the exact Navigator filter sets to find more prospects just like your best ones.",
+    files: ["Connections", "Messages", "Invitations", "Reactions"],
+    free: true,
+  },
+  {
+    id: "inner",
+    name: "The Inner Circle",
+    tag: "INCLUDED",
+    subtitle: "Your referral engine",
+    description: "The champions and referral partners already in your corner who you're not activating. Ranked by relationship strength with a tailored ask framework for each one.",
+    files: ["Connections", "Messages", "Invitations", "Recommendations_Received"],
+    free: true,
+  },
+];
     name: "The Field Report",
     tag: "FREE",
     subtitle: "What your network is really made of",
