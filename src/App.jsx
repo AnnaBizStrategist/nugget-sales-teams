@@ -200,7 +200,7 @@ async function callClaude(systemPrompt, data, retries = 3, onRetry = null) {
   const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
   const body = JSON.stringify({
     model: "claude-sonnet-4-20250514",
-    max_tokens: 2500,
+    max_tokens: 1800,
     system: systemPrompt,
     messages: [{ role: "user", content: `Here is the LinkedIn export data to analyse:\n\n${JSON.stringify(data, null, 2)}\n\nGenerate the report now. Use real names from the data. Make every insight immediately actionable for a sales professional.` }],
   });
@@ -244,7 +244,6 @@ function slimConnection(c) {
     company: c["Company"] || "",
     position: c["Position"] || "",
     connected: c["Connected On"] || "",
-    seniority: categorizeSeniority(c["Position"] || ""),
   };
 }
 
@@ -270,29 +269,29 @@ function prepareData(parsedData, fileKeys) {
       });
       out[k] = {
         _summary: { total, seniority_distribution: seniorityDist },
-        all_connections: parsedData[k].slice(0, 80).map(slimConnection),
+        all_connections: parsedData[k].slice(0, 60).map(slimConnection),
       };
     } else if (k === "Messages") {
-      out[k] = parsedData[k].slice(0, 80).map((m) => ({
+      out[k] = parsedData[k].slice(0, 60).map((m) => ({
         FROM:    m.FROM    || m.From    || "",
         TO:      m.TO      || m.To      || "",
         DATE:    m.DATE    || m.Date    || "",
         SUBJECT: (m.SUBJECT || m.Subject || "").substring(0, 80),
-        CONTENT: (m.CONTENT || m.Content || "").substring(0, 200),
+        CONTENT: (m.CONTENT || m.Content || "").substring(0, 120),
       }));
-      meta[`${k}_shown`] = Math.min(80, total);
+      meta[`${k}_shown`] = Math.min(60, total);
     } else if (k === "Invitations") {
-      out[k] = parsedData[k].slice(0, 60).map((inv) => ({
+      out[k] = parsedData[k].slice(0, 40).map((inv) => ({
         From:      inv.From      || inv.from      || "",
         To:        inv.To        || inv.to        || "",
         SentAt:    inv.SentAt    || inv["Sent At"] || "",
         Direction: inv.Direction || inv.direction || "",
         Message:   (inv.Message || inv.message || "").substring(0, 100),
       }));
-      meta[`${k}_shown`] = Math.min(60, total);
-    } else if (k === "Reactions") {
-      out[k] = parsedData[k].slice(0, 40);
       meta[`${k}_shown`] = Math.min(40, total);
+    } else if (k === "Reactions") {
+      out[k] = parsedData[k].slice(0, 20);
+      meta[`${k}_shown`] = Math.min(20, total);
     } else {
       out[k] = parsedData[k].slice(0, 50);
       meta[`${k}_shown`] = Math.min(50, total);
